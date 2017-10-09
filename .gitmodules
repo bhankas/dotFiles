@@ -1,0 +1,18 @@
+[submodule "Vim/.vim/bundle/auto-pairs"]
+	path = Vim/.vim/bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "Vim/.vim/bundle/nerdtree"]
+	path = Vim/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "Vim/.vim/bundle/supertab"]
+	path = Vim/.vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "Vim/.vim/bundle/vim-code-dark"]
+	path = Vim/.vim/bundle/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark
+[submodule "Vim/.vim/bundle/vim-airline"]
+	path = Vim/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "Vim/.vim/bundle/vim-surround"]
+	path = Vim/.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
