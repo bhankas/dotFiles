@@ -1,1 +1,1 @@
-/home/payas/.local/share/omf/themes/cbjohnson/fish_prompt.fish
+/home/payas/.local/share/omf/themes/shellder/fish_prompt.fish
