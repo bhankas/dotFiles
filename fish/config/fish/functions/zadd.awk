@@ -1,0 +1,1 @@
+/home/payas/.config/fisherman/z/functions/zadd.awk
