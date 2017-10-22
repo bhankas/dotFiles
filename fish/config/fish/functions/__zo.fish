@@ -1,1 +1,0 @@
-/home/payas/.config/fisherman/z/functions/__zo.fish

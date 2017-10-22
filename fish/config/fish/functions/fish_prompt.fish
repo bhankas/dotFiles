@@ -1,1 +1,0 @@
-/home/payas/.config/fisherman/shellder/fish_prompt.fish

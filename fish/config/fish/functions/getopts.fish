@@ -1,1 +1,0 @@
-/home/payas/.config/fisherman/getopts/getopts.fish
