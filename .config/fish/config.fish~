@@ -1,0 +1,15 @@
+set PATH ~/kakoune/src $PATH
+
+alias gc "git commit"
+alias gs "git status"
+alias gd "git diff"
+alias gpush "git push"
+
+function fish_user_key_bindings
+    bind \co fzf-vim
+end
+
+function fzf-vim
+    set fzfout (fzf)
+    eval $EDITOR $fzfout
+end

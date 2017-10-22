@@ -1,5 +1,30 @@
-" Pathogen for plugin management
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'mbbill/undotree'
+Plugin 'tomasiser/vim-code-dark'
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'exvim/ex-autocomplpop'
+Plugin 'ervandew/supertab'
+Plugin 'vim-airline/vim-airline'
+
+call vundle#end()
+
+set shell=/bin/bash
+
+" try vim-code-dark theme
+" colorscheme codedark
+colorscheme codedark
+let g:airline_theme = 'codedark'
 
 " For relative line numbers, make for easy vertical movement
 set relativenumber
@@ -58,11 +83,6 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " powerline fonts for airline
 let g:airline_powerline_fonts = 1
-
-" try vim-code-dark theme
-" colorscheme codedark
-colorscheme codedark
-let g:airline_theme = 'codedark'
 
 " Open project tree view when eclim
 let g:EclimProjectTreeAutoOpen = '1'

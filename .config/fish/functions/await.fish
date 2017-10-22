@@ -1,0 +1,1 @@
+/home/payas/.config/fisherman/await/functions/await.fish
