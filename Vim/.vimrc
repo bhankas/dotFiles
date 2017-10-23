@@ -16,6 +16,10 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'exvim/ex-autocomplpop'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
+Plugin 'bagrat/vim-workspace'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 
@@ -76,6 +80,17 @@ inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\
 
 " Let vim omni code completeion handle code completeion
 " let g:EclimCompletionMethod = 'omnifunc'
+
+" Setting for vim-workspaces plugin
+let g:workspace_powerline_separators = 1
+let g:workspace_tab_icon = "\uf00a"
+let g:workspace_left_trunc_icon = "\uf0a8"
+let g:workspace_right_trunc_icon = "\uf0a9"
+
+noremap <C-t> :WSTabNew<CR>
+noremap <C-Tab> :WSNext<CR>
+noremap <S-Tab> :WSPrev<CR>
+noremap <Leader><Tab> :WSClose<CR>
 
 " try to highlight current line
 set cursorline
