@@ -16,10 +16,11 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'exvim/ex-autocomplpop'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
-Plugin 'bagrat/vim-workspace'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'liuchengxu/space-vim-dark'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 
@@ -27,8 +28,11 @@ set shell=/bin/bash
 
 " try vim-code-dark theme
 " colorscheme codedark
-colorscheme codedark
-let g:airline_theme = 'codedark'
+colorscheme space-vim-dark
+let g:space_vim_dark_background = 233
+" let g:airline_theme = 'codedark'
+" let g:airline_theme = 'papercolor'
+let g:airline_theme = 'powerlineish'
 
 " For relative line numbers, make for easy vertical movement
 set relativenumber
@@ -41,6 +45,11 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Use smart case for file search
 set ignorecase
 set smartcase
+
+" show some wwhitespace characters, like tabs
+" set list listchars=tab:→\ ,trail:·
+set list listchars=tab:\·\ ,trail:·
+" set list listchars=tab:>-,trail:-
 
 " from reddit comment
 syntax enable
@@ -67,6 +76,10 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" set default buffer openeing position
+set splitright
+set splitbelow
+
 " autoclose braces
 inoremap {<CR>  {<CR>}<Esc>O
 
@@ -81,23 +94,23 @@ inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\
 " Let vim omni code completeion handle code completeion
 " let g:EclimCompletionMethod = 'omnifunc'
 
-" Setting for vim-workspaces plugin
-let g:workspace_powerline_separators = 1
-let g:workspace_tab_icon = "\uf00a"
-let g:workspace_left_trunc_icon = "\uf0a8"
-let g:workspace_right_trunc_icon = "\uf0a9"
-
-noremap <C-t> :WSTabNew<CR>
-noremap <C-Tab> :WSNext<CR>
-noremap <S-Tab> :WSPrev<CR>
-noremap <Leader><Tab> :WSClose<CR>
+noremap <C-n> :vs <CR>
+noremap <C-Tab> :bNext<CR>
+noremap <S-Tab> :bprevious<CR>
+noremap <Leader><Tab> :bd<CR>
+noremap <C-f> :Files <CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " try to highlight current line
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
-" powerline fonts for airline
+" airline settings
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Open project tree view when eclim
 let g:EclimProjectTreeAutoOpen = '1'
@@ -113,3 +126,30 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" FZF settings
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~50%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
