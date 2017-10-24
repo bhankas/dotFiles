@@ -93,11 +93,10 @@ inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\
 " Let vim omni code completeion handle code completeion
 " let g:EclimCompletionMethod = 'omnifunc'
 
-noremap <C-n> :vs <CR>
-noremap <C-Tab> :bNext<CR>
-noremap <S-Tab> :bprevious<CR>
-noremap <Leader><Tab> :bd<CR>
 noremap <C-f> :Files <CR>
+noremap <Leader><Tab> :bd<CR>
+noremap <C-n> :vs <bar> :Files<CR>
+nnoremap <S-Tab> <C-W><C-W>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
