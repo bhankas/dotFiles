@@ -26,7 +26,6 @@ call vundle#end()
 
 set shell=/bin/bash
 
-" try vim-code-dark theme
 " colorscheme codedark
 colorscheme space-vim-dark
 let g:space_vim_dark_background = 233
@@ -46,7 +45,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set ignorecase
 set smartcase
 
-" show some wwhitespace characters, like tabs
+" show some whitespace characters, like tabs
 " set list listchars=tab:→\ ,trail:·
 set list listchars=tab:\·\ ,trail:·
 " set list listchars=tab:>-,trail:-
