@@ -23,6 +23,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'alvan/vim-closetag'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
