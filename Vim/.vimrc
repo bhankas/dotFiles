@@ -10,17 +10,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
-Plugin 'tomasiser/vim-code-dark'
+" Plugin 'tomasiser/vim-code-dark'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'exvim/ex-autocomplpop'
 Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+" Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plugin 'junegunn/fzf', { 'dir': '/usr/bin/fzf'}
 Plugin 'junegunn/fzf.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'alvan/vim-closetag'
 
 call vundle#end()
 
@@ -93,7 +95,6 @@ inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\
 " Let vim omni code completeion handle code completeion
 " let g:EclimCompletionMethod = 'omnifunc'
 
-noremap <C-f> :Files <CR>
 noremap <Leader><Tab> :bd<CR>
 noremap <C-n> :vs <bar> :Files<CR>
 nnoremap <S-Tab> <C-W><C-W>
