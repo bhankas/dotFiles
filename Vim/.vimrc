@@ -42,8 +42,6 @@ set relativenumber
 set number
 " For autoindent after braces
 set cindent
-" For indents that consist of 4 space characters but are entered with tab key
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Use smart case for file search
 set ignorecase
 set smartcase
@@ -53,10 +51,18 @@ set smartcase
 set list listchars=tab:\·\ ,trail:·
 " set list listchars=tab:>-,trail:-
 
+" convert 4 spaces to a tab. From stackoverflow comment posted here:
+" https://stackoverflow.com/questions/11598890/how-to-convert-leading-spaces-to-tabs
+" fu! Fixspaces()
+    " while search('^\t* \{4}') != 0
+     "  execute ':%s/^\t*\zs \{4}/\t/g'
+    " endwhile
+" endfu
+
 " from reddit comment
 syntax enable
 set tabstop=4
-set expandtab
+set noexpandtab
 set autoindent
 set showcmd
 filetype indent on
