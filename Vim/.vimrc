@@ -14,9 +14,9 @@ Plugin 'mbbill/undotree'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'exvim/ex-autocomplpop'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 " Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf', { 'dir': '/usr/bin/fzf'}
 Plugin 'junegunn/fzf.vim'
@@ -49,15 +49,6 @@ set smartcase
 " show some whitespace characters, like tabs
 " set list listchars=tab:→\ ,trail:·
 set list listchars=tab:\·\ ,trail:·
-" set list listchars=tab:>-,trail:-
-
-" convert 4 spaces to a tab. From stackoverflow comment posted here:
-" https://stackoverflow.com/questions/11598890/how-to-convert-leading-spaces-to-tabs
-" fu! Fixspaces()
-    " while search('^\t* \{4}') != 0
-     "  execute ':%s/^\t*\zs \{4}/\t/g'
-    " endwhile
-" endfu
 
 " from reddit comment
 syntax enable
@@ -66,12 +57,10 @@ set noexpandtab
 set autoindent
 set showcmd
 filetype indent on
+set smartindent
 set showmatch
 set incsearch
 set hlsearch
-
-" supertab complete with tab key
-let g:SuperTabDefaultCompletionType = 'context'
 
 " Refresh file content automatically if file is changeed outside VIM
 set autoread
@@ -112,7 +101,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " try to highlight current line
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+" hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " airline settings
 let g:airline_powerline_fonts = 1
