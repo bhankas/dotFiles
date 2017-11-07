@@ -24,6 +24,7 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'alvan/vim-closetag'
 Plugin 'tpope/vim-fugitive'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
