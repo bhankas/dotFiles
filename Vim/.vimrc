@@ -10,8 +10,14 @@ call plug#begin('~/.vim/plugged')
 	Plug '/usr/bin/fzf'
 	Plug 'junegunn/fzf.vim'
 
-	" Plugin : multiple language packs
-	" Plug 'sheerun/vim-polyglot'
+	" Plugin : vimtex
+	Plug 'lervag/vimtex'
+
+	" Plugin : YouCompleteMe
+	Plug 'Valloric/YouCompleteMe'
+
+	" Plugin : neosnippet
+	Plug 'Shougo/neosnippet.vim'
 
 call plug#end()
 
@@ -90,6 +96,13 @@ set cursorline
 " airline settings
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" LaTeX autocompletion with YouCompleteMe
+if !exists('g:ycm_semantic_triggers')
+	let g:ycm_semantic_triggers = {}
+	endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
 
 " Select entry from Autocompletion popup when pressed enter
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
