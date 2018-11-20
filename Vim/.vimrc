@@ -1,41 +1,35 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+	" Theme : tender
+	Plug 'jacoborus/tender.vim'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'mbbill/undotree'
-" Plugin 'tomasiser/vim-code-dark'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'exvim/ex-autocomplpop'
-" Plugin 'ervandew/supertab'
-Plugin 'vim-airline/vim-airline'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plugin 'junegunn/fzf', { 'dir': '/usr/bin/fzf'}
-Plugin 'junegunn/fzf.vim'
-Plugin 'liuchengxu/space-vim-dark'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'alvan/vim-closetag'
-Plugin 'tpope/vim-fugitive'
-Plugin 'w0rp/ale'
+	" Plugin : airline
+	Plug 'vim-airline/vim-airline'
 
-call vundle#end()
+	" Plugin : fzf
+	Plug '/usr/bin/fzf'
+	Plug 'junegunn/fzf.vim'
 
-set shell=/bin/bash
+	" Plugin : multiple language packs
+	" Plug 'sheerun/vim-polyglot'
 
-" colorscheme codedark
-colorscheme space-vim-dark
-let g:space_vim_dark_background = 233
-" let g:airline_theme = 'codedark'
-" let g:airline_theme = 'papercolor'
-let g:airline_theme = 'powerlineish'
+call plug#end()
+
+" set lighline theme inside lightline config
+" let g:lightline = { 'colorscheme': 'tenderplus' }
+
+" set airline theme
+let g:airline_theme = 'tender'
+
+" Ename theme : space-vim-dark
+colorscheme tender
+
+" auto-install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
 " For relative line numbers, make for easy vertical movement
 set relativenumber
@@ -89,17 +83,6 @@ inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
 
-" Let vim omni code completeion handle code completeion
-" let g:EclimCompletionMethod = 'omnifunc'
-
-noremap <Leader><Tab> :bd<CR>
-noremap <C-n> :vs <bar> :Files<CR>
-nnoremap <S-Tab> <C-W><C-W>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " try to highlight current line
 set cursorline
 " hi CursorLine term=bold cterm=bold guibg=Grey40
@@ -108,20 +91,13 @@ set cursorline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" Open project tree view when eclim
-let g:EclimProjectTreeAutoOpen = '1'
-let g:EclimProjectTreeExpandPathOnOpen = '1'
-
-" Autocompletion fine-tuning
-set completeopt=longest,menuone
-
 " Select entry from Autocompletion popup when pressed enter
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+\ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " FZF settings
 " This is the default extra key bindings
@@ -148,4 +124,4 @@ let g:fzf_colors =
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ 'header': ['fg', 'Comment'] }
