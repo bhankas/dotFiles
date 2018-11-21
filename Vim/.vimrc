@@ -21,6 +21,13 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" auto-install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
 " set lighline theme inside lightline config
 " let g:lightline = { 'colorscheme': 'tenderplus' }
 
@@ -29,13 +36,6 @@ let g:airline_theme = 'tender'
 
 " Ename theme : space-vim-dark
 colorscheme tender
-
-" auto-install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
 
 " For relative line numbers, make for easy vertical movement
 set relativenumber
