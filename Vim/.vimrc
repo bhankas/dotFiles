@@ -79,9 +79,9 @@ set splitright
 set splitbelow
 
 " autoclose braces
-inoremap {<CR>  {<CR>}<Esc>O
+" inoremap {<CR>  {<CR>}<Esc>O
 
-" autoclose bracket, only if bracket is not closed alreeady
+" autoclose bracket, only if bracket is not closed already
 inoremap        (  ()<Left>
 inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
